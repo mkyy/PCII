@@ -1,0 +1,66 @@
+import java.util.Scanner;
+public class findprime{
+ 
+	
+	public static int[] geraVetor() {
+		boolean aux;
+		int auxInt,cont=0;
+		int[] numPrimos = new int[1000];
+		
+		for (int i=0;i<1000;i++) {
+			aux=true;
+			for (int j =2;j<i;j++) {
+				if (i%j==0) {
+					aux = false;
+				}
+			}
+			if (aux==true) {
+				numPrimos[i] = i;
+			}
+		}
+		
+		//ordenando vetor de numeros primos dentro da geração
+		for(int l=0;l<1000;l++) {
+			for(int c=0;c<999;c++) {
+				if(numPrimos[c]>numPrimos[c+1]) {
+					auxInt = numPrimos[c+1];
+					numPrimos[c+1] = numPrimos[c];
+					numPrimos[c] = auxInt;
+				}
+			}
+		}
+		for(int x = 0; x < 1000; x++){
+	           if(numPrimos[x] != 0){
+	               cont++;
+	           }
+	    }
+		int[] primosOrdenados = new int[cont];
+		int index=0;
+		for (int x =0;x<1000;x++) {
+			if(numPrimos[x] !=0) {
+				primosOrdenados[index] = numPrimos[x];
+				index ++;
+			}
+		}
+    
+    //retornando um vetor com todos os numeros primos até 1000
+		return primosOrdenados;
+	}
+	
+	public static int getPrimo(int N,int[] vet) {
+		return vet[N];
+	}
+	
+	public static void main(String[] args) {
+		int[] a = geraVetor();
+		Scanner scn = new Scanner(System.in);
+		System.out.println("entre com n-esimo numero primo desejado, para n<1000");
+		int n = scn.nextInt();
+		if (n<0 || n>1000) {
+			System.out.println("invalid number");
+			n = scn.nextInt();
+		}
+		int nPrimo = getPrimo(n,a);
+		System.out.printf("%dº numero primo é %d",n,nPrimo);
+	}
+}

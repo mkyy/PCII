@@ -1,0 +1,6 @@
+	public int euclidsalgorithm(int m, int n) {
+		if(m%n==0)
+			return n;
+		else 
+			return euclidsalgorithm(n,m%n);
+	}

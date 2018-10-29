@@ -1,4 +1,7 @@
 	public int euclidsalgorithm(int m, int n) {
+		if(m<n) {
+			return euclidsalgorithm(n,m); // me garante que m > n para todos os casos.
+		}
 		if(m%n==0)
 			return n;
 		else 

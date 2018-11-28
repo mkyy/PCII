@@ -1,0 +1,36 @@
+	public static boolean eCuboMagico(int m[][]) {
+		boolean res=true;
+		int somatorioAux=0,diagonalAux=0,diagonalSecnd=0;
+		int n = 3;
+		int M = (n*(n*n+1))/2;	// constante magica
+		
+		for (int L=0;L<n;L++) { // L: Linha, C: Coluna
+			for(int C=0;C<n;C++) {
+				somatorioAux+= m[L][C];
+				if(L==C) {  //condicao para estar na diagonal principal
+					diagonalAux += m[L][C];
+				}
+				if(L==n-1-C) // condicao para estar na diagonal secundaria
+					diagonalSecnd += m[L][C];
+			}
+			if(somatorioAux!=M) 	 //vertical
+				res=false;
+			
+			somatorioAux=0;
+		}
+		if(diagonalAux!=M)	//diagonal principal
+			res=false;
+		if(diagonalSecnd!=M)	//diagonal secundaria
+			res=false;
+		
+		for (int C=0;C<n;C++) {
+			for(int L=0;L<n;L++) {
+				somatorioAux+= m[L][C];
+			}
+			if(somatorioAux!=M)		//horizontal
+				res=false;
+			
+			somatorioAux=0;
+		}
+		return res;
+	}

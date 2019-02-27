@@ -9,6 +9,17 @@ public class fatorial {
 			return 1;
 	}
 	
+	public static BigInteger bigfat(int num){ // modo nao-recursivo onde serve para num > 20
+		BigInteger r = BigInteger.valueOf(1);
+		
+		while (num > 1) {
+			r = r.multiply(BigInteger.valueOf(num));
+			num--;
+		}
+		
+		return r;
+	}
+	
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
 		System.out.println("entre com o numero");

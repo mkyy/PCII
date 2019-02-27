@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class fatorial {
 	
 	static int Fatorial(int N) {
-		if (N>1) {
+		if (N>0) {
 			return N * Fatorial(N-1);
 		} else
 			return 1;

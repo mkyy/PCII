@@ -1,0 +1,63 @@
+import java.util.Scanner;
+public class Ex01 {
+	
+		public static String Encrypt (String y, int key) {
+			int v = y.length();
+			int i = y.length();
+			String saux = "";
+			
+			for(i=0; i<v; i++) {
+				saux = saux + (char)(y.charAt(i) + key);
+			}
+			return saux;
+		}
+		
+		public static String Decrypt (String y, int key) {
+			int v = y.length();
+			int i = y.length();
+			String saux = "";
+			
+			for(i=0; i<v; i++) {
+				saux = saux + (char)(y.charAt(i) - key);
+			}
+			return saux;
+		}
+		
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		String text, RES;
+		int chave;
+		
+
+		System.out.printf("Entre com o texto:\n");
+		text = in.nextLine();
+		System.out.printf("Entre com a chave:\n");
+		chave = in.nextInt();
+		System.out.printf("0- criptografar / 1- desencriptografar\n");
+		int ver = in.nextInt();
+		String j = Integer.toString(chave);
+		
+		if (ver==0) {
+			if (j.length()==1) {
+			
+				RES = Encrypt(text, chave);
+				System.out.printf("Texto criptografado:\n");
+				System.out.printf("%s",RES);
+			}
+
+			if (j.length()>1) {
+				System.out.print("chave so pode receber um numero");
+			}
+		}
+		if (ver==1) {
+			if (j.length()==1) {
+				RES = Decrypt(text, chave);
+				System.out.printf("Texto decriptografado:\n");
+				System.out.printf("%s",RES);
+			}
+			if (j.length()>1) {
+				System.out.print("chave so pode receber um numero");
+			}
+		}
+  }
+}

@@ -1,2 +1,2 @@
-# PCII
-Programação para computadores II
+# Prog. estruturada
+Algoritmos em java, usando a programação struturada.
